@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">mobile_multicraft</string>
+    <string-array name="register_negara">
+        <item>Negara/Country</item>
+        <item>Indonesia</item>
+        <item>Foreign Country</item>
+    </string-array>
 </resources>
