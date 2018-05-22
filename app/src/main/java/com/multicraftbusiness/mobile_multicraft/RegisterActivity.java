@@ -31,6 +31,7 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -39,9 +40,11 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import static android.os.Build.VERSION_CODES.N;
+
 public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = RegisterActivity.class.getSimpleName();
-    private static final String URL_FOR_REGISTRATION = "http://tifb.multicraftbusiness.com/mregister/Register/daftar";
+    private static final String URL_FOR_REGISTRATION = "http://tifb.multicraftbusiness.com/mregister/Register/daftar"; //url controller webservice
     ProgressDialog progressDialog;
 
     private EditText registerInputNama, registerInputEmail, registerInputPassword, registerInputNohp;
@@ -120,6 +123,24 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    //mengecek tanggal null atau tidak
+    private boolean cektanggal(String tanggal){
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
+        Date strDate = null;
+        try {
+            strDate = sdf.parse(tanggal);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        try {
+            new Date().before(strDate);
+            return false;
+        }catch (Exception e){
+        return true;
+    }}
+
+    //mengecek isi tiap inputan apakah valid jika valid lanjut register
     private void submitForm(){
         int selectedId = genderRadioGroup.getCheckedRadioButtonId();
         String gender;
@@ -145,60 +166,68 @@ public class RegisterActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
         if (nama.equalsIgnoreCase("")){
             Toast.makeText(getApplicationContext(), "Isi Nama Lengkap dong", Toast.LENGTH_LONG).show();
+            registerInputNama.requestFocus();
         }
         else if (!email.matches(emailPattern)){
             Toast.makeText(getApplicationContext(), "Isi Emailnya dulu kak :3", Toast.LENGTH_LONG).show();
+            registerInputEmail.requestFocus();
         }
         else if (password.equalsIgnoreCase("")){
             Toast.makeText(getApplicationContext(), "Isi Password Dulu dong UwU", Toast.LENGTH_LONG).show();
+            registerShowPassword.requestFocus();
         }
         else if (nohp.equalsIgnoreCase("")){
             Toast.makeText(getApplicationContext(), "Isi Nomor HP Dulu kak ^_^", Toast.LENGTH_LONG).show();
+            registerInputNohp.requestFocus();
         }
-        else if (new Date().before(strDate)){
+        else if (cektanggal(tanggal)){
             Toast.makeText(getApplicationContext(), "Isi Tanggal Lahir Dulu kak ^_^", Toast.LENGTH_LONG).show();
         }
-        else if (negara.equalsIgnoreCase("Negara/Country")){
+        else if (new Date().before(strDate)){
+            Toast.makeText(getApplicationContext(), "Hayoo, isi yang bener tanggalnya ...", Toast.LENGTH_LONG).show();
+        }
+        else if (negara.matches("Negara/Country")){
             Toast.makeText(getApplicationContext(), "Pilih Negara Dulu kak ^_^", Toast.LENGTH_LONG).show();
         }
         else {
 
-        registerUser(nama, email, password, nohp, gender, tanggal, negara);
+        registerUser(nama, email, password, nohp, gender, tanggal, negara);//mengirim nama, email, password, nohp, gender, tanggal, negara inputan ke fungsi registerUser()
         }
     }
 
+    //mengirim data ke webservice menggunakan volley
     private void registerUser(final String nama, final String email,
                               final String password, final String nohp, final String gender,
                               final String tanggal, final String negara){
         String cancel_req_tag = "register";
 
-        progressDialog.setMessage("Adding you ...");
+        progressDialog.setMessage("Adding you ..."); // menampilkan progressdialog
         showDialog();
+
         StringRequest strReq = new StringRequest(Request.Method.POST,
                 URL_FOR_REGISTRATION, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Register Response: " + response.toString());
-                hideDialog();
+                hideDialog(); //Setelah webservice mengirim response, progress dialog di dismiss
 
                 try {
-                    JSONObject jObj = new JSONObject(response);
-                    boolean error = jObj.getBoolean("error");
+                    JSONObject jObj = new JSONObject(response); //membuat JSON object sesuat dengan JSON Object yang dikirim dari webservice
+                    boolean error = jObj.getBoolean("error"); //mengambil key JSON bernama error
 
-                    if (!error) {
-                        String user = jObj.getJSONObject("user").getString("name");
-                        Toast.makeText(getApplicationContext(), "Hi " + user + ", You are successfully Added!", Toast.LENGTH_SHORT).show();
+                    if (!error) { //jika tidak error
+                        String user = jObj.getJSONObject("user").getString("nama_user"); //mengambil key nama_user dari json object user
+                        Toast.makeText(getApplicationContext(), "Hi " + user + ", You are successfully Added! Silakan cek emailmu.", Toast.LENGTH_LONG).show();
 
-
+                        //intent ke login
                         Intent intent = new Intent(
                                 RegisterActivity.this,
                                 RegisterActivity.class);
                         startActivity(intent);
                         finish();
-                    } else {
+                    } else { //jika error
                         String errorMsg = jObj.getString("error_msg");
                         Toast.makeText(getApplicationContext(),
                                 errorMsg, Toast.LENGTH_LONG).show();
@@ -217,6 +246,7 @@ public class RegisterActivity extends AppCompatActivity {
                 hideDialog();
             }
         }){
+            //mengirim data nama, email, password, nohp, gender, tanggal, negara ke webservice menggunakan method POST
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
@@ -231,7 +261,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         };
 
-        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag);
+        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(strReq, cancel_req_tag); //menaruh strReq ke antrian di AppSingelton
     }
 
     private void showDialog(){
