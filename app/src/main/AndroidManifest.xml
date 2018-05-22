@@ -3,13 +3,17 @@
     package="com.multicraftbusiness.mobile_multicraft">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3539837177c6825507ac244de43b0d83e0698d75
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+<<<<<<< HEAD
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity">
 
@@ -24,3 +28,14 @@
     </application>
 
 </manifest>
+=======
+        android:theme="@style/AppTheme" >
+        <activity android:name=".RegisterActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+>>>>>>> 3539837177c6825507ac244de43b0d83e0698d75

@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">mobile_multicraft</string>
+    <string-array name="register_negara">
+        <item>Negara/Country</item>
+        <item>Indonesia</item>
+        <item>Foreign Country</item>
+    </string-array>
+
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_name">Nomor HP</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_register">REGISTER</string>
+    <string name="btn_link_to_register">Not a member? Sign up now.</string>
+    <string name="btn_link_to_login">Already registred! Login Me.</string>
+    <string name="welcome">Welcome</string>
+    <string name="btn_logout">LOGOUT</string>
+    <string name="name">Nama</string>
+    <string name="laki2">Laki-Laki</string>
+    <string name="perempuan">Perempuan</string>
+    <string name="gende">Gender</string>
+    <string name="tanggal">Tanggal Lahir</string>
 </resources>
