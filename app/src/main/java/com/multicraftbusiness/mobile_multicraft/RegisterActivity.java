@@ -28,6 +28,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.multicraftbusiness.mobile_multicraft.login.LoginActivity;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -224,7 +226,7 @@ public class RegisterActivity extends AppCompatActivity {
                         //intent ke login
                         Intent intent = new Intent(
                                 RegisterActivity.this,
-                                RegisterActivity.class);
+                                LoginActivity.class);
                         startActivity(intent);
                         finish();
                     } else { //jika error

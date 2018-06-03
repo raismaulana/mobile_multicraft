@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:text="Pilih Gambar"
+        android:id="@+id/buttonChoose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/foto_bukti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/nomor_rekening"
+        android:hint="Nomor Rekeningmu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/tgl_bayar"
+        android:hint="Tanggal Bayar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/jam_bayar"
+        android:hint="Jam Bayar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/nominal_bayar"
+        android:hint="Nominal Bayar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:text="Upload"
+        android:id="@+id/buttonUpload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

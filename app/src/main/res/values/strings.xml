@@ -20,4 +20,11 @@
     <string name="perempuan">Perempuan</string>
     <string name="gende">Gender</string>
     <string name="tanggal">Tanggal Lahir</string>
+
+    //listproduk
+    <string name="action_settings">Settings</string>
+    <string name="action_add_favourite">Add to Favourites</string>
+    <string name="action_play_next">Play Next</string>
+    <string name="backdrop_title">MULTICRAFT BUSINESS</string>
+    <string name="backdrop_subtitle">kategori</string>
 </resources>
