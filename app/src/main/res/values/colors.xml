@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
         <color name="colorPrimary">#3F51B5</color>
         <color name="colorPrimaryDark">#28ACE2</color>
         <color name="colorAccent">#fff</color>
@@ -25,3 +26,9 @@
         <color name="album_title">#4c4c4c</color>
     </resources>
 
+=======
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+</resources>
+>>>>>>> 9e327ad452af97aacfe55dae23dfd05311ca5109

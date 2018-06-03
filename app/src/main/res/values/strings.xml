@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">mobile_multicraft</string>
+<<<<<<< HEAD
     <string-array name="register_negara">
         <item>Negara/Country</item>
         <item>Indonesia</item>
@@ -27,4 +28,6 @@
     <string name="action_play_next">Play Next</string>
     <string name="backdrop_title">MULTICRAFT BUSINESS</string>
     <string name="backdrop_subtitle">kategori</string>
+=======
+>>>>>>> 9e327ad452af97aacfe55dae23dfd05311ca5109
 </resources>
