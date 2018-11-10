@@ -69,7 +69,6 @@ public class ListProdukAdapter extends RecyclerView.Adapter<ListProdukAdapter.Li
             nama_produk = itemView.findViewById(R.id.nama_produk);
             harga_produk = itemView.findViewById(R.id.harga_produk);
             gambar_produk = itemView.findViewById(R.id.gambar_produk);
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -81,6 +80,7 @@ public class ListProdukAdapter extends RecyclerView.Adapter<ListProdukAdapter.Li
                     }
                 }
             });
+
         }
     }
 

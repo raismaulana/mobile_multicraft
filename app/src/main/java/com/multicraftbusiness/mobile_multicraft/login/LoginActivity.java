@@ -21,6 +21,7 @@ import com.multicraftbusiness.mobile_multicraft.AppSingleton;
 import com.multicraftbusiness.mobile_multicraft.R;
 import com.multicraftbusiness.mobile_multicraft.RegisterActivity;
 import com.multicraftbusiness.mobile_multicraft.home.HomeActivity;
+import com.multicraftbusiness.mobile_multicraft.listproduk.ListProdukActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
 
-    public final static String TAG_USERNAME = "username";
+    public final static String TAG_USERNAME = "email";
     public final static String TAG_PASSWORD = "password";
 
     String tag_json_obj = "json_obj_req";
@@ -52,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
     SharedPreferences sharedpreferences;
     Boolean session = false;
     String password, username;
-    public static final String my_shared_preferences = "my_shared_preferences";
+    public static final String my_shared_preferences = "data_pengguna";
     public static final String session_status = "session_status";
 
     @Override
@@ -97,15 +98,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                String username = txt_username.getText().toString();
+                String email = txt_username.getText().toString();
                 String password = txt_password.getText().toString();
 
                 // mengecek kolom yang kosong
-                if (username.trim().length() > 0 && password.trim().length() > 0) {
+                if (email.trim().length() > 0 && password.trim().length() > 0) {
                     if (conMgr.getActiveNetworkInfo() != null
                             && conMgr.getActiveNetworkInfo().isAvailable()
                             && conMgr.getActiveNetworkInfo().isConnected()) {
-                        checkLogin(username, password);
+                        checkLogin(email, password);
                     } else {
                         Toast.makeText(getApplicationContext() ,"No Internet Connection", Toast.LENGTH_LONG).show();
                     }
@@ -129,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void checkLogin(final String username, final String password) {
+    private void checkLogin(final String email, final String password) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         pDialog.setMessage("Logging in ...");
@@ -148,8 +149,9 @@ public class LoginActivity extends AppCompatActivity {
 
                     // Check for error node in json
                     if (success == 1) {
-                        String username = jObj.getString(TAG_USERNAME);
+                        String  email = jObj.getString(TAG_USERNAME);
                         String password= jObj.getString(TAG_PASSWORD);
+                        int id_user = jObj.getInt("id_user");
 
                         Log.e("Successfully Login!", jObj.toString());
 
@@ -159,15 +161,15 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putBoolean(session_status, true);
                         editor.putString(TAG_PASSWORD, password);
-                        editor.putString(TAG_USERNAME, username);
+                        editor.putString(TAG_USERNAME, email);
+                        editor.putInt("id_user", id_user);
                         editor.commit();
 
                         // Memanggil home activity
+
                         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                        intent.putExtra(TAG_PASSWORD, password);
-                        intent.putExtra(TAG_USERNAME, username);
-                        finish();
                         startActivity(intent);
+                        finish();
                     } else {
                         Toast.makeText(getApplicationContext(),
                                 jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
@@ -196,7 +198,7 @@ public class LoginActivity extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 // Posting parameters to login url
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("email", username);
+                params.put("email", email);
                 params.put("password", password);
 
                 return params;

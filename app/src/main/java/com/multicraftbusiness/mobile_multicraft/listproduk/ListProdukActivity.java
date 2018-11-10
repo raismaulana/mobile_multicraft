@@ -116,6 +116,7 @@ public class ListProdukActivity extends AppCompatActivity implements ListProdukA
 
     }
 
+
     private void loadData(final String id_kategori) {
         String cancel_req_tag = "produk";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_FOR_PRODUK, new Response.Listener<String>() {
@@ -244,7 +245,7 @@ public class ListProdukActivity extends AppCompatActivity implements ListProdukA
 
     @Override
     public void onItemClick(int position) {
-        Intent kedetailproduk = new Intent(this, DetailProdukActivity.class);
+        Intent kedetailproduk = new Intent(ListProdukActivity.this, DetailProdukActivity.class);
         ListProduk clickedItem = mListProduk.get(position);
 
         kedetailproduk.putExtra(EXTRA_ID_PRODUK, clickedItem.getId_produk());

@@ -1,86 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
 
-    <LinearLayout
+    android:background="@drawable/bacground_asli">
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:background="@mipmap/ic_launcher" />
-
-        <TextView
-            android:id="@+id/TextView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:text="Multicraft Bussiness"
-            android:textSize="18dip"
-            android:textStyle="bold" />
-
-        <View
-            android:id="@+id/View1"
-            android:layout_marginBottom="20dp"
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_gravity="center"
-            android:background="#448AFF" />
-
-
-
-        <EditText
-            android:id="@+id/txt_username"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:hint="Username"
-            android:inputType="textEmailAddress"
-            android:singleLine="true" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="240dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:padding="16dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/logo"/>
 
-        <EditText
-            android:id="@+id/txt_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:hint="Password"
-            android:password="true"
-            android:singleLine="true" />
 
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="15dp"
-            android:text="Login"
-            android:background="#448AFF"
-            android:textColor="#fff"
-            android:textStyle="bold" />
+            <EditText
+                android:id="@+id/txt_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:background="@android:color/transparent"
+                android:drawablePadding="12dp"
+                android:padding="8dp"
+                android:textStyle="bold"
+                android:hint="username"
+                android:textColorHint="#13adbe"
+                android:maxLines="1"
+                android:drawableLeft="@drawable/ic_person_white_24dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#017184"/>
+            <EditText
+                android:id="@+id/txt_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:background="@android:color/transparent"
+                android:drawablePadding="12dp"
+                android:padding="8dp"
+                android:textStyle="bold"
+                android:hint="................"
+                android:layout_marginTop="4dp"
+                android:textColorHint="#109da7"
+                android:maxLines="1"
+                android:drawableLeft="@drawable/ic_lock_black_24dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#038ca4"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="#015264"
+                android:text="Remember me"
+                android:padding="8dp"/>
 
-        <Button
-            android:id="@+id/btn_register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="15dp"
-            android:background="#00555555"
-            android:textColor="#00ddff"
-            android:text="Dont have account ? Register here"
-            />
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:background="#fff"
+                android:text="Log In"
+                android:textColor="#02a1a9"
+                android:textAllCaps="false"
+                android:layout_marginTop="24dp"/>
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:background="#02a1a9"
+                android:text="Register"
+                android:textColor="#fff"
+                android:textAllCaps="false"
+                android:layout_marginTop="10dp"/>
 
-    </LinearLayout>
 
-</RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

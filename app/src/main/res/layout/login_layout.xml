@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,15 +7,14 @@
     android:orientation="vertical"
     android:layout_weight="0.1"
     >
-=======
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
->>>>>>> 9e327ad452af97aacfe55dae23dfd05311ca5109
 
-    <Button
-        android:layout_width="wrap_content"
+
+
+
+    <LinearLayout
+        android:layout_weight="0.9"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:orientation="vertical"
         >
         <ImageView
@@ -31,24 +29,74 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-=======
-        android:text="login"
-        />
-    <Button
-        android:layout_width="wrap_content"
->>>>>>> 9e327ad452af97aacfe55dae23dfd05311ca5109
         android:layout_height="wrap_content"
-        android:text="register"
-        />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="daftar"
-        />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="lupa password"
-        />
+        android:orientation="vertical"
+        android:layout_weight="0.3"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
 
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_email" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_password" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="0.16"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="@string/btn_login"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+
+
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.1"
+
+        >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="Registrasi Dulu"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_weight="0"
+        >
+
+    </LinearLayout>
 </LinearLayout>
