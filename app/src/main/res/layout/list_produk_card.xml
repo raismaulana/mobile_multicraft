@@ -23,7 +23,8 @@
                 android:layout_height="@dimen/album_cover_height"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_launcher"/>
 
             <TextView
                 android:id="@+id/nama_produk"
@@ -33,7 +34,7 @@
                 android:paddingLeft="@dimen/album_title_padding"
                 android:paddingRight="@dimen/album_title_padding"
                 android:paddingTop="@dimen/album_title_padding"
-                android:textColor="@color/album_title"
+                android:textColor="@color/white"
                 android:textSize="@dimen/album_title"/>
 
             <TextView

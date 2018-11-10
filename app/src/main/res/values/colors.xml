@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<<<<<<< HEAD
         <color name="colorPrimary">#3F51B5</color>
         <color name="colorPrimaryDark">#28ACE2</color>
         <color name="colorAccent">#fff</color>
@@ -24,11 +23,20 @@
         // listproduk
         <color name="viewBg">#f1f5f8</color>
         <color name="album_title">#4c4c4c</color>
+
+        //checkout
+        <color name="bg">#2d2d2d</color>
+        <color name="oren">#f48a23</color>
+        <color name="grey">#cecece</color>
+        <color name="gretouy">#b9b9b9</color>
+        <color name="tranparant">#00ffffff</color>
+
+        //text
+        <color name="title">#151515</color>
+        <color name="body">#494949</color>
+
+        //bg2
+        <color name="blacktrans">#7d000000</color>
+        <color name="tabsScrollColor">#96ffffff</color>
     </resources>
 
-=======
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-</resources>
->>>>>>> 9e327ad452af97aacfe55dae23dfd05311ca5109
